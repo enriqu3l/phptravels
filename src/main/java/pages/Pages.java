@@ -5,9 +5,6 @@ import org.openqa.selenium.WebDriver;
 public class Pages {
 	private static WebDriver driver;
 	
-	public static Home home;
-	public static Login login;
-	
 	public static void setDriver(WebDriver _driver) {
 		driver = _driver;
 	}
@@ -20,5 +17,4 @@ public class Pages {
 		return new Login(driver);
 	}
 
-	
 }

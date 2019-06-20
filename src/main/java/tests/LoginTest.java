@@ -1,5 +1,6 @@
 package tests;
 
+import org.testng.Assert;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -20,7 +21,6 @@ public class LoginTest extends TestBase{
     	Pages.login().clickLoginButton();
 	}
 	
-	
 	// Parameters 
 	@Test (enabled=true, priority = 1)
 	@Parameters({"usuario","pass"})
@@ -32,15 +32,17 @@ public class LoginTest extends TestBase{
     	Pages.login().clickLoginButton();
 	}
 	
-	
 	// Data Providers
-	@Test (enabled=false, dataProvider = "provideUserLogin", dataProviderClass = Provider.class)
+	@Test (enabled=true, dataProvider = "provideUserLogin", dataProviderClass = Provider.class)
 	public void TestLogin3(String usuario, String pass) {
 		Pages.home().clickMyAccount();
     	Pages.home().clickLogin();
     	Pages.login().setUsername(usuario);
     	Pages.login().setPass(pass);
     	Pages.login().clickLoginButton();
+    	
+    	//Fallamos la prueba a proposito para comprobar que se guarde el screnshot 
+    	Assert.fail();
 	}	
 	
 }

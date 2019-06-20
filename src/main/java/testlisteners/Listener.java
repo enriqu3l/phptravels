@@ -21,13 +21,11 @@ public class Listener implements ITestListener{
 
 	@Override
 	public void onTestFailure(ITestResult result) {
-		//
-		
 		ITestContext context = result.getTestContext();
 	    driver = (WebDriver) context.getAttribute("WebDriver");
 		
 		//Imprimir pantalla de la falla!
-	    String path = System.getProperty("user.dir") + "/outputdata/screenshots/failures/";
+	    String path = "./outputdata/screenshots/failures/";
 		FWUtils.ScreenShot(driver, "FAILURE-"+result.getName(), path);
 	}
 

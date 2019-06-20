@@ -29,7 +29,6 @@ public class Login {
 	@FindBy(how=How.CLASS_NAME, using="loginbtn")
 	private WebElement loginButton;
 	
-	
 	public void setUsername(String name) {
 		username.sendKeys(name.trim());
 	}
@@ -39,6 +38,12 @@ public class Login {
 	}
 	
 	public void clickLoginButton() {
+		loginButton.click();
+	}
+	
+	public void login(String name, String pass) {
+		username.sendKeys(name.trim());
+		userpass.sendKeys(pass.trim());
 		loginButton.click();
 	}
 }

@@ -31,5 +31,5 @@ public class Home {
 	public void clickLogin() {
 		login.click();
 	}
-		
+	
 }
